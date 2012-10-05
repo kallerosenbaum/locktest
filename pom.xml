@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>se.elva.lkpg</groupId>
-	<artifactId>locktest2</artifactId>
+	<artifactId>locktest</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>locktest2</name>
+	<name>locktest</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
@@ -38,7 +38,8 @@
 						<!-- <argument>-Xloggc:gc.log</argument> -->
 						<argument>-classpath</argument>
 						<classpath />
-						<argument>se.elva.lkpg.locktest.LockTestRunner</argument>
+						<!-- <argument>se.elva.lkpg.locktest.LockTestRunner</argument> --> 
+                         <argument>se.elva.lkpg.locktest.Test</argument> 
 					</arguments>
 				</configuration>
 			</plugin>

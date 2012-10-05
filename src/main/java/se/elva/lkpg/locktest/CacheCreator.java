@@ -12,7 +12,8 @@ public class CacheCreator {
 	private static final Logger logger = Logger.getLogger(CacheCreator.class);
 
 	public static final String PESSIMISTIC_CACHE = "pessimistic-cache";
-	public static final String OPTIMISTIC_CACHE = "optimistic-cache";
+	public static final String OPTIMISTIC_ASYNC_CACHE = "optimistic-async-cache";
+	public static final String PESSIMISTIC_ASYNC_CACHE = "pessimistic-async-cache";
 
 	private static Cache<String, String> cache;
 	//com.arjuna.common.util.propertyservice.PropertyManagerFactory a;
@@ -27,7 +28,7 @@ public class CacheCreator {
 			.transaction().transactionMode(TransactionMode.TRANSACTIONAL)
 			.build();
 		manager.defineConfiguration(PESSIMISTIC_CACHE, config);*/
-		return manager.getCache(PESSIMISTIC_CACHE);
+		return manager.getCache(PESSIMISTIC_ASYNC_CACHE);
 	}
 	
 	public static Cache<String, String> getPessimisticCache() {

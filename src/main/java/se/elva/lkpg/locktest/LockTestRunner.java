@@ -20,6 +20,14 @@ public class LockTestRunner {
 		public void run() {
 			LockTest lockTest = new LockTest();
 			lockTest.initializeCache();
+			/**
+			try {
+				Thread.sleep(30000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}*/
+			
 			//for (int i = 0; i < 10; i++) {
 			for (;;) {
 				lockTest.runTestDefaultCache();

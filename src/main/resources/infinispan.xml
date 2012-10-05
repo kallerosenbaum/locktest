@@ -18,5 +18,58 @@
 		<transaction
 			transactionManagerLookupClass="org.infinispan.transaction.lookup.JBossStandaloneJTAManagerLookup"
 			transactionMode="TRANSACTIONAL" lockingMode="PESSIMISTIC" />
+		<locking />
+	</namedCache>
+    <namedCache name="pessimistic-async-cache">
+        <clustering mode="dist">
+            <hash numOwners="1" />
+        </clustering>
+
+        <transaction
+            transactionManagerLookupClass="org.infinispan.transaction.lookup.JBossStandaloneJTAManagerLookup"
+            transactionMode="TRANSACTIONAL" lockingMode="PESSIMISTIC" />
+        <locking />
+    </namedCache>
+	<namedCache name="optimistic-async-cache">
+        <clustering mode="dist">
+            <hash numOwners="1" />
+        </clustering>
+
+        <transaction
+            transactionManagerLookupClass="org.infinispan.transaction.lookup.JBossStandaloneJTAManagerLookup"
+            transactionMode="TRANSACTIONAL" />
+        <locking />
+    </namedCache>
+	
+    <namedCache name="transactional-dist-sync-cache-works">
+        <clustering mode="dist">
+            <sync />
+        </clustering>
+        <transaction
+            transactionManagerLookupClass="org.infinispan.transaction.lookup.JBossStandaloneJTAManagerLookup"
+            transactionMode="TRANSACTIONAL" />
+    </namedCache>
+	<namedCache name="transactional-pessimistic-dist-sync-cache-fails">
+		<clustering mode="dist">
+			<sync />
+		</clustering>
+		<transaction
+			transactionManagerLookupClass="org.infinispan.transaction.lookup.JBossStandaloneJTAManagerLookup"
+			transactionMode="TRANSACTIONAL" lockingMode="PESSIMISTIC" />
+	</namedCache>
+	<namedCache name="transactional-pessimistic-dist-cache-works">
+		<clustering mode="dist" />
+		<transaction
+			transactionManagerLookupClass="org.infinispan.transaction.lookup.JBossStandaloneJTAManagerLookup"
+			transactionMode="TRANSACTIONAL" lockingMode="PESSIMISTIC" />
+	</namedCache>
+	<namedCache name="transactional-dist-cache-works">
+		<clustering mode="dist" />
+		<transaction
+			transactionManagerLookupClass="org.infinispan.transaction.lookup.JBossStandaloneJTAManagerLookup"
+			transactionMode="TRANSACTIONAL" />
+	</namedCache>
+	<namedCache name="default-dist-cache-works">
+		<clustering mode="dist" />
 	</namedCache>
 </infinispan>
